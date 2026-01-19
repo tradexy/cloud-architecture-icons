@@ -86,6 +86,46 @@ async function buildProvider(provider) {
         return;
     }
 
+    // SANITIZE: Remove SVGs with <text> tags which break Iconify import
+    console.log(`Sanitizing ${provider} sources...`);
+    // Use recursive list if possible, or we rely on importDirectory's recursive find.
+    // We need to clean BEFORE import.
+    // If we can't easily list recursive in Node < 20 (recursive: true), we can use a helper or shell 'find'.
+    // Assuming Node environment here is recent enough or we can use a simple recursive walker.
+    async function getFiles(dir) {
+        const dirents = await fs.readdir(dir, { withFileTypes: true });
+        const files = await Promise.all(dirents.map((dirent) => {
+            const res = path.resolve(dir, dirent.name);
+            return dirent.isDirectory() ? getFiles(res) : res;
+        }));
+        return Array.prototype.concat(...files);
+    }
+
+    try {
+        const allFiles = await getFiles(sourcePath);
+        for (const file of allFiles) {
+            if (!file.toLowerCase().endsWith('.svg')) continue;
+            try {
+                const content = await fs.readFile(file, 'utf8');
+                const lowContent = content.toLowerCase();
+                // Check for various invalid elements for Iconify/Mermaid
+                if (lowContent.includes('<text') ||
+                    lowContent.includes('<a ') ||
+                    lowContent.includes('<image') ||
+                    lowContent.includes('<foreignobject') ||
+                    lowContent.includes('<script')) {
+                    // console.log(`Deleting invalid SVG: ${path.basename(file)}`);
+                    await fs.unlink(file);
+                }
+            } catch (err) {
+                // Ignore read errors
+            }
+        }
+        console.log('Sanitization complete.');
+    } catch (e) {
+        console.error('Sanitization failed:', e);
+    }
+
     const iconSet = await importDirectory(sourcePath, {
         prefix: provider, // Use provider name as prefix (aws, azure, gcp)
         includeSubDirs: true // Azure/GCP/AWS often use subfolders

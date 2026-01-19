@@ -16,31 +16,27 @@
         }
     },
     "azure": {
-        "sourceUrl": "https://github.com/microsoft/azure-icons/archive/refs/heads/main.zip",
+        "sourceUrl": "https://github.com/benc-uk/icon-collection/archive/refs/heads/master.zip",
         "aliases": {
-            "vm": "10028-icon-service-virtual-machines-classic",
-            "app-service": "10035-icon-service-app-services",
-            "storage": "10086-icon-service-storage-accounts",
-            "sql": "10130-icon-service-sql-database",
-            "functions": "10029-icon-service-function-apps",
-            "cosmosdb": "10121-icon-service-azure-cosmos-db",
-            "aks": "10023-icon-service-kubernetes-services",
-            "resource-groups": "10007-icon-service-resource-groups"
+            "virtual-machine": "vm",
+            "app-service": "app-service",
+            "blob-storage": "storage",
+            "sql-db": "sql",
+            "functions": "functions",
+            "azure-cosmos-db": "cosmosdb",
+            "kubernetes-services": "aks",
+            "resource-groups": "resource-groups"
         }
     },
     "gcp": {
         "sourceUrl": "https://github.com/AwesomeLogos/google-cloud-icons/archive/refs/heads/master.zip",
         "aliases": {
-            "compute": "compute-engine",
-            "storage": "cloud-storage",
-            "sql": "cloud-sql",
-            "run": "cloud-run",
-            "functions": "cloud-functions",
-            "pubsub": "pubsub",
-            "gke": "kubernetes-engine",
-            "bigquery": "bigquery",
-            "firestore": "firestore",
-            "cloud-functions": "cloud-functions",
+            "compute-engine": "compute",
+            "cloud-storage": "storage",
+            "cloud-sql": "sql",
+            "cloud-run": "run",
+            "cloud-functions": "functions",
+            "google-kubernetes-engine": "gke",
             "google-cloud-platform": "google-cloud-platform"
         }
     }
