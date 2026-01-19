@@ -44,10 +44,30 @@ async function prepareSource(provider) {
         // Let's rely on importDirectory's recursive ability if possible, or just flatten now.
     }
 
-    // GCP: Manual for now, or fetch from a known repo if possible. 
-    // For this MVP, we will assume user might drop files, or we skip if empty.
+    // AWS: Download from official source
+    if (provider === 'aws' && (await fs.readdir(providerDir)).length === 0) {
+        console.log('Fetching official AWS icons...');
+        const zipPath = path.join(SOURCE_DIR, 'aws.zip');
+        await downloadFile(CONFIG.aws.sourceUrl, zipPath);
+
+        console.log('Extracting AWS icons...');
+        const zip = new AdmZip(zipPath);
+        zip.extractAllTo(providerDir, true);
+    }
+
+    // GCP: Download from Community Mirror
     if (provider === 'gcp' && (await fs.readdir(providerDir)).length === 0) {
-        console.warn("⚠️  GCP source folder is empty. Please place SVG files in source/gcp/ manually.");
+        console.log('Fetching generic GCP icons (Community)...');
+        // Using AwesomeLogos repo which is a clean source of SVGs
+        const zipPath = path.join(SOURCE_DIR, 'gcp.zip');
+        await downloadFile('https://github.com/AwesomeLogos/google-cloud-icons/archive/refs/heads/master.zip', zipPath);
+
+        console.log('Extracting GCP icons...');
+        const zip = new AdmZip(zipPath);
+        zip.extractAllTo(providerDir, true);
+
+        // Flatten logic might be needed if they are deeply nested, 
+        // but importDirectory with includeSubDirs: true usually handles it.
     }
 }
 
@@ -67,8 +87,8 @@ async function buildProvider(provider) {
     }
 
     const iconSet = await importDirectory(sourcePath, {
-        prefix: providerConfig.prefix,
-        includeSubDirs: true // Azure/GCP often use subfolders
+        prefix: provider, // Use provider name as prefix (aws, azure, gcp)
+        includeSubDirs: true // Azure/GCP/AWS often use subfolders
     });
 
     // 3. Process
@@ -128,6 +148,7 @@ async function buildProvider(provider) {
     await fs.ensureDir(SOURCE_DIR);
     await fs.ensureDir(DIST_DIR);
 
+    await buildProvider('aws');
     await buildProvider('azure');
     await buildProvider('gcp');
 })();
