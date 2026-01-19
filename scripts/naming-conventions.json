@@ -19,12 +19,14 @@
         "sourceUrl": "https://github.com/benc-uk/icon-collection/archive/refs/heads/master.zip",
         "aliases": {
             "virtual-machine": "vm",
-            "app-service": "app-service",
+            "app-service-web": "app-service",
             "blob-storage": "storage",
             "sql-db": "sql",
-            "functions": "functions",
-            "function": "functions",
-            "function-app": "functions",
+            "function01": [
+                "functions",
+                "function-app",
+                "function"
+            ],
             "azure-cosmos-db": "cosmosdb",
             "kubernetes-services": "aks",
             "resource-groups": "resource-groups"

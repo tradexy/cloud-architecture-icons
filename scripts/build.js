@@ -158,22 +158,22 @@ async function buildProvider(provider) {
 
     // 4. Aliases
     if (providerConfig.aliases) {
-        Object.entries(providerConfig.aliases).forEach(([file, alias]) => {
-            // Find the key that matches this filename (Iconify import might sanitize names)
-            // This part is tricky without knowing exact sanitized names.
-            // Simple match:
-            const saneName = file.replace('.svg', '').toLowerCase().replace(/[^a-z0-9]/g, '-');
-            if (iconSet.exists(saneName)) {
-                iconSet.setAlias(alias, saneName);
-                console.log(`Alias: ${alias} -> ${saneName}`);
-            } else {
-                // Try looking for it
-                const found = iconSet.list().find(i => i.includes(saneName));
-                if (found) {
-                    iconSet.setAlias(alias, found);
-                    console.log(`Alias (fuzzy): ${alias} -> ${found}`);
+        Object.entries(providerConfig.aliases).forEach(([filename, aliasOrAliases]) => {
+            const aliases = Array.isArray(aliasOrAliases) ? aliasOrAliases : [aliasOrAliases];
+            aliases.forEach(alias => {
+                if (iconSet.exists(filename)) {
+                    iconSet.setAlias(alias, filename);
+                    console.log(`Alias: ${alias} -> ${filename}`);
+                } else {
+                    // Try fuzzy matching
+                    const allIcons = iconSet.list();
+                    const match = allIcons.find(k => k.includes(filename) || filename.includes(k));
+                    if (match) {
+                        iconSet.setAlias(alias, match);
+                        console.log(`Alias (fuzzy): ${alias} -> ${match}`);
+                    }
                 }
-            }
+            });
         });
     }
 
