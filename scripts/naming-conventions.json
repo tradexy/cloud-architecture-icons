@@ -1,0 +1,39 @@
+{
+    "azure": {
+        "prefix": "azure",
+        "sourceUrl": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V17.zip",
+        "namingRules": {
+            "removePrefix": [
+                "Azure-",
+                "Microsoft-"
+            ],
+            "format": "kebab-case"
+        },
+        "aliases": {
+            "Virtual-Machines.svg": "vm",
+            "App-Services.svg": "app-service",
+            "Storage-Accounts.svg": "storage",
+            "SQL-Database.svg": "sql",
+            "Function-Apps.svg": "functions"
+        }
+    },
+    "gcp": {
+        "prefix": "gcp",
+        "//": "GCP icons often require manual download or web scraping as there isn't a single stable permalink zip. For MVP we will try to source from a reliable community repo or instruct manual placement.",
+        "sourceUrl": "MANUAL_OR_COMMUNITY",
+        "namingRules": {
+            "removePrefix": [
+                "Google-Cloud-",
+                "GCP-"
+            ],
+            "format": "kebab-case"
+        },
+        "aliases": {
+            "Compute Engine.svg": "compute",
+            "Cloud Storage.svg": "storage",
+            "Cloud SQL.svg": "sql",
+            "Cloud PubSub.svg": "pubsub",
+            "Cloud Run.svg": "run"
+        }
+    }
+}

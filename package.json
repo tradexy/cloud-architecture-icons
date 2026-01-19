@@ -1,0 +1,16 @@
+{
+    "name": "cloud-architecture-icons",
+    "version": "1.0.0",
+    "description": "Tool to generate IconifyJSON for Azure, GCP, and AWS from official sources",
+    "main": "index.js",
+    "scripts": {
+        "build": "node scripts/build.js"
+    },
+    "dependencies": {
+        "@iconify/tools": "^3.0.0",
+        "@iconify/utils": "^2.1.0",
+        "adm-zip": "^0.5.10",
+        "axios": "^1.6.0",
+        "fs-extra": "^11.1.1"
+    }
+}
