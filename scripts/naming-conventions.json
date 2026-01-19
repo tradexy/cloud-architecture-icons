@@ -23,6 +23,8 @@
             "blob-storage": "storage",
             "sql-db": "sql",
             "functions": "functions",
+            "function": "functions",
+            "function-app": "functions",
             "azure-cosmos-db": "cosmosdb",
             "kubernetes-services": "aks",
             "resource-groups": "resource-groups"
