@@ -42,7 +42,16 @@
             ],
             "azure-cosmos-db": "cosmosdb",
             "kubernetes-services": "aks",
-            "resource-groups": "resource-groups"
+            "resource-groups": "resource-groups",
+            "azure-bastion": "bastion",
+            "web-application-firewall-policieswaf": "waf-policy",
+            "recovery-services-vaults": "site-recovery",
+            "cognitive-services": "cognitive-search",
+            "azure-backup": "backup",
+            "policy": [
+                "policy",
+                "azure-policy"
+            ]
         }
     },
     "gcp": {
@@ -55,7 +64,19 @@
             "cloud-functions": "functions",
             "google-kubernetes-engine": "gke",
             "identity-and-access-management": "iam",
-            "google-cloud-platform": "google-cloud-platform"
+            "google-cloud-platform": [
+                "google-cloud-platform",
+                "platform"
+            ],
+            "cloud-load-balancing": "load-balancing",
+            "virtual-private-cloud": "vpc",
+            "vertexai": "vertex-ai",
+            "cloud-spanner": "spanner",
+            "trace": "trace",
+            "cloud-vision-api": "vision-ai",
+            "cloud-translation-api": "translation-ai",
+            "retail-api": "retail",
+            "transfer": "storage-transfer-service"
         }
     }
 }
