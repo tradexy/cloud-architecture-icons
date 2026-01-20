@@ -12,7 +12,9 @@
             "arch-amazon-simple-queue-service-48": "sqs",
             "arch-amazon-simple-notification-service-48": "sns",
             "arch-amazon-virtual-private-cloud-48": "vpc",
-            "arch-amazon-elasticache-48": "elasticache"
+            "arch-amazon-elastic-cache-48": "elasticache",
+            "arch-amazon-efs-48": "efs",
+            "arch-amazon-simple-storage-service-glacier-48": "glacier"
         }
     },
     "azure": {
@@ -26,6 +28,14 @@
                 "functions",
                 "function-app",
                 "function"
+            ],
+            "azure-active-directory": "entra-id",
+            "event-grid-topics": "event-grid",
+            "cache-redis": "cache-for-redis",
+            "networking-63-virtual-network-gateways": "vpn-gateway",
+            "networking-61-virtual-networks": [
+                "virtual-network",
+                "vnet"
             ],
             "azure-cosmos-db": "cosmosdb",
             "kubernetes-services": "aks",
