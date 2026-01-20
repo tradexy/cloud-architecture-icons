@@ -76,7 +76,11 @@
             "cloud-vision-api": "vision-ai",
             "cloud-translation-api": "translation-ai",
             "retail-api": "retail",
-            "transfer": "storage-transfer-service"
+            "transfer": "storage-transfer-service",
+            "cloud-interconnect": [
+                "interconnect",
+                "cloud-interconnect"
+            ]
         }
     }
 }
