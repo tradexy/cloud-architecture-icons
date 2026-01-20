@@ -11,13 +11,13 @@
             "arch-amazon-elastic-kubernetes-service-48": "eks",
             "arch-amazon-simple-queue-service-48": "sqs",
             "arch-amazon-simple-notification-service-48": "sns",
-            "arch-amazon-virtual-private-cloud-48": "vpc",
             "arch-amazon-elasticache-48": "elasticache",
             "arch-amazon-efs-48": [
                 "efs",
                 "elastic-file-system"
             ],
-            "arch-amazon-simple-storage-service-glacier-48": "glacier"
+            "arch-amazon-simple-storage-service-glacier-48": "glacier",
+            "arch-amazon-virtual-private-cloud-48": "default"
         }
     },
     "azure": {
@@ -51,7 +51,8 @@
             "manage-316-policy": [
                 "policy",
                 "azure-policy"
-            ]
+            ],
+            "azure-cloud": "default"
         }
     },
     "gcp": {
@@ -68,12 +69,23 @@
             "virtual-private-cloud": "vpc",
             "vertexai": "vertex-ai",
             "cloud-spanner": "spanner",
-            "trace": "trace",
+            "cloud-monitoring": "trace",
             "cloud-vision-api": "vision-ai",
             "cloud-translation-api": "translation-ai",
-            "retail-api": "retail",
+            "retail-api": [
+                "retail",
+                "talent"
+            ],
             "transfer": "storage-transfer-service",
-            "cloud-interconnect": "interconnect"
+            "cloud-interconnect": [
+                "interconnect",
+                "cloud-interconnect"
+            ],
+            "google-cloud-marketplace": [
+                "google-cloud-platform",
+                "platform",
+                "default"
+            ]
         }
     }
 }
