@@ -17,7 +17,10 @@
                 "elastic-file-system"
             ],
             "arch-amazon-simple-storage-service-glacier-48": "glacier",
-            "arch-amazon-virtual-private-cloud-48": "default"
+            "arch-amazon-virtual-private-cloud-48": [
+                "vpc",
+                "default"
+            ]
         }
     },
     "azure": {
