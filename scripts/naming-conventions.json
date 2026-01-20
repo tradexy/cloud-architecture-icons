@@ -80,7 +80,8 @@
                 "talent"
             ],
             "transfer": "storage-transfer-service",
-            "cloud-interconnect": [
+            "cloud-interconnect": "interconnect",
+            "partner-interconnect": [
                 "interconnect",
                 "cloud-interconnect"
             ],
