@@ -48,7 +48,7 @@
             "recovery-services-vaults": "site-recovery",
             "cognitive-services": "cognitive-search",
             "azure-backup": "backup",
-            "policy": [
+            "manage-316-policy": [
                 "policy",
                 "azure-policy"
             ]
@@ -64,10 +64,6 @@
             "cloud-functions": "functions",
             "google-kubernetes-engine": "gke",
             "identity-and-access-management": "iam",
-            "google-cloud-platform": [
-                "google-cloud-platform",
-                "platform"
-            ],
             "cloud-load-balancing": "load-balancing",
             "virtual-private-cloud": "vpc",
             "vertexai": "vertex-ai",
@@ -77,10 +73,7 @@
             "cloud-translation-api": "translation-ai",
             "retail-api": "retail",
             "transfer": "storage-transfer-service",
-            "cloud-interconnect": [
-                "interconnect",
-                "cloud-interconnect"
-            ]
+            "cloud-interconnect": "interconnect"
         }
     }
 }
