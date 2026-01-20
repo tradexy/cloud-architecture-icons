@@ -12,8 +12,11 @@
             "arch-amazon-simple-queue-service-48": "sqs",
             "arch-amazon-simple-notification-service-48": "sns",
             "arch-amazon-virtual-private-cloud-48": "vpc",
-            "arch-amazon-elastic-cache-48": "elasticache",
-            "arch-amazon-efs-48": "efs",
+            "arch-amazon-elasticache-48": "elasticache",
+            "arch-amazon-efs-48": [
+                "efs",
+                "elastic-file-system"
+            ],
             "arch-amazon-simple-storage-service-glacier-48": "glacier"
         }
     },
@@ -51,6 +54,7 @@
             "cloud-run": "run",
             "cloud-functions": "functions",
             "google-kubernetes-engine": "gke",
+            "identity-and-access-management": "iam",
             "google-cloud-platform": "google-cloud-platform"
         }
     }
